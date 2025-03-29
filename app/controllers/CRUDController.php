@@ -26,6 +26,6 @@ class CRUDController
             $article_json[] = $article;
         }
 
-        Flight::json_encode($article_json);
+        Flight::json($article_json);
     }
 }

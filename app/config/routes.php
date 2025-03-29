@@ -2,6 +2,8 @@
 use flight\Engine;
 use flight\net\Router;
 use app\controllers\CreateController;
+use app\controllers\UserController;
+use app\controllers\CRUDController;
 
 /** 
  * @var Router $router 
@@ -10,20 +12,12 @@ use app\controllers\CreateController;
 $CreateController = new CreateController($app);
 
 // $router->get('/', [$CreateController, 'goToHomePage']);
-$router->get('/', [$CreateController, 'createArticle']);
-use app\controllers\ExampleController;
-use app\controllers\UserController;
-use app\controllers\CRUDController;
+$router->post('/', [$CreateController, 'createArticle']);
 
-$exampleController = new ExampleController();
+
 $userController = new UserController(Flight::app());
-$exampleController = new ExampleController();
 $CRUD_Controller = new CRUDController();
 
-$router->get('/', [$exampleController, 'goToHomePage']);
 $router->post('/user',[$userController, 'login']);
-
-
-$router->get('/', [$exampleController, 'goToHomePage']);
 
 $router->get('/readArticle', [$CRUD_Controller, 'crudArticle']);

@@ -3,6 +3,7 @@
 use app\models\ProduitModel;
 use app\models\CaisseModel;
 use app\models\UserModel;
+use app\models\CrudModel;
 
 use flight\Engine;
 use flight\database\PdoWrapper;

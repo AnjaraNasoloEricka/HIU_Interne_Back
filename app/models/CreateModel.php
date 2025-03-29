@@ -18,4 +18,11 @@ class CreateModel
         $stmt->execute([$title, $description, $date_create, $date_modification]);
         return $this->db->lastInsertId();
     }
+
+    public function findById($id){
+        $sql = "SELECT * FROM Article WHERE id_article = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch();
+    }
 }

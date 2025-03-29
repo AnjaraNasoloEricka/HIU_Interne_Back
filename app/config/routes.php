@@ -13,6 +13,7 @@ $CreateController = new CreateController($app);
 
 // $router->get('/', [$CreateController, 'goToHomePage']);
 $router->post('/', [$CreateController, 'createArticle']);
+$router->get('/find/@id', [$CreateController, 'find_ById']);
 
 
 $userController = new UserController(Flight::app());

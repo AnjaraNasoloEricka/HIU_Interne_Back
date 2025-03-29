@@ -36,3 +36,7 @@ $app->register('db', $pdoClass, [$dsn, $config['database']['user'] ?? null, $con
 // Flight::map('exampleModel', function () {
 //     return new exampleModel(Flight::db());
 // });
+
+Flight::map('CrudModel', function () {
+    return new CrudModel(Flight::db());
+});

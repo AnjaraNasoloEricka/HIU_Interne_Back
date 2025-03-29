@@ -21,3 +21,6 @@ $CRUD_Controller = new CRUDController();
 $router->post('/user',[$userController, 'login']);
 
 $router->get('/readArticle', [$CRUD_Controller, 'crudArticle']);
+
+$router->put('/updateArticle/@id', [$CRUD_Controller, 'updateArticle']);
+

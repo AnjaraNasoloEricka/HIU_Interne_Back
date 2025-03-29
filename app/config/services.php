@@ -1,6 +1,7 @@
 <?php
 use app\models\UserModel;
 use app\models\CrudModel;
+use app\models\GeneraliseModel;
 
 use flight\Engine;
 use flight\database\PdoWrapper;
@@ -40,4 +41,7 @@ Flight::map('userModel',function () {
 });
 Flight::map('CrudModel', function () {
     return new CrudModel(Flight::db());
+});
+Flight::map('GeneraliseModel', function () {
+    return new GeneraliseModel(Flight::db());
 });

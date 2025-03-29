@@ -1,5 +1,6 @@
 <?php
 use app\models\UserModel;
+use app\models\CrudModel;
 
 use flight\Engine;
 use flight\database\PdoWrapper;
@@ -36,4 +37,7 @@ $app->register('db', $pdoClass, [$dsn, $config['database']['user'] ?? null, $con
 
 Flight::map('userModel',function () {
     return new UserModel(Flight::db());
+});
+Flight::map('CrudModel', function () {
+    return new CrudModel(Flight::db());
 });

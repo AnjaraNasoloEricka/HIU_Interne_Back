@@ -1,7 +1,4 @@
 <?php
-
-use app\models\ProduitModel;
-use app\models\CaisseModel;
 use app\models\UserModel;
 
 use flight\Engine;
@@ -36,3 +33,7 @@ $app->register('db', $pdoClass, [$dsn, $config['database']['user'] ?? null, $con
 // Flight::map('exampleModel', function () {
 //     return new exampleModel(Flight::db());
 // });
+
+Flight::map('userModel',function () {
+    return new UserModel(Flight::db());
+});

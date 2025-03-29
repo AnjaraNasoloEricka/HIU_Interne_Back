@@ -1,6 +1,13 @@
 <?php
+use flight\Engine;
+use flight\net\Router;
+use app\controllers\CreateController;
 
-use app\controllers\ExampleController;
-$exampleController = new ExampleController();
+/** 
+ * @var Router $router 
+ * @var Engine $app
+ */
+$CreateController = new CreateController($app);
 
-$router->get('/', [$exampleController, 'goToHomePage']);
+// $router->get('/', [$CreateController, 'goToHomePage']);
+$router->get('/', [$CreateController, 'createArticle']);

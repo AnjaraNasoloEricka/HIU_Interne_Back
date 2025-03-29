@@ -31,9 +31,9 @@ $app->register('db', $pdoClass, [$dsn, $config['database']['user'] ?? null, $con
 
 
 // MAPPING EXAMPLE : 
-// Flight::map('exampleModel', function () {
-//     return new exampleModel(Flight::db());
-// });
+Flight::map('CreateModel', function () {
+    return new CreateModel(Flight::db()); 
+});
 
 Flight::map('userModel',function () {
     return new UserModel(Flight::db());

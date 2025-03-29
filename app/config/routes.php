@@ -14,6 +14,13 @@ use app\controllers\ArticleController;
 $CreateController = new CreateController($app);
 $userController = new UserController($app);
 $articleController = new ArticleController($app);
+
+// $router->get('/', [$CreateController, 'goToHomePage']);
+$router->post('/', [$CreateController, 'createArticle']);
+$router->get('/find/@id', [$CreateController, 'find_ById']);
+
+
+$userController = new UserController(Flight::app());
 $CRUD_Controller = new CRUDController();
 
 $router->post('/', [$CreateController, 'createArticle']);

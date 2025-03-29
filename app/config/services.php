@@ -1,6 +1,7 @@
 <?php
 use app\models\UserModel;
 use app\models\CrudModel;
+use app\models\CreateModel;
 
 use flight\Engine;
 use flight\database\PdoWrapper;

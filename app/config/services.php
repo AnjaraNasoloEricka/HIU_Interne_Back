@@ -1,4 +1,6 @@
 <?php
+
+use app\models\ArticleModel;
 use app\models\UserModel;
 use app\models\CrudModel;
 use app\models\CreateModel;
@@ -41,4 +43,7 @@ Flight::map('userModel',function () {
 });
 Flight::map('CrudModel', function () {
     return new CrudModel(Flight::db());
+});
+Flight::map('articleModel', function () {
+    return new ArticleModel(Flight::db());
 });

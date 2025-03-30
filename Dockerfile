@@ -11,4 +11,4 @@ COPY . /var/www
 EXPOSE 8080
 
 # Lancer le serveur PHP intégré
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+CMD ["php", "-S", "0.0.0.0:8080", "index.php"]

@@ -1,8 +1,12 @@
 # Utiliser l'image PHP 8 basée sur Alpine
 FROM php:8-alpine
 
-# Installer PDO MySQL
+# Installer PDO et PDO MySQL
 RUN docker-php-ext-install pdo pdo_mysql
+
+# Activer l'affichage des erreurs dans le fichier php.ini
+RUN echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php.ini
+RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php.ini
 
 # Définir le répertoire de travail
 WORKDIR /var/www

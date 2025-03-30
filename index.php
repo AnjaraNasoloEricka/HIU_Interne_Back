@@ -1,34 +1,10 @@
 <?php
-
-/*
- * FlightPHP Framework
- * @copyright   Copyright (c) 2024, Mike Cao <mike@mikecao.com>, n0nag0n <n0nag0n@sky-9.com>
- * @license     MIT, http://flightphp.com/license
-                                                                  .____   __ _
-     __o__   _______ _ _  _                                     /     /
-     \    ~\                                                  /      /
-       \     '\                                         ..../      .'
-        . ' ' . ~\                                      ' /       /
-       .  _    .  ~ \  .+~\~ ~ ' ' " " ' ' ~ - - - - - -''_      /
-      .  <#  .  - - -/' . ' \  __                          '~ - \
-       .. -           ~-.._ / |__|  ( )  ( )  ( )  0  o    _ _    ~ .
-     .-'                                               .- ~    '-.    -.
-    <                      . ~ ' ' .             . - ~             ~ -.__~_. _ _
-      ~- .       N121PP  .          . . . . ,- ~
-            ' ~ - - - - =.   <#>    .         \.._
-                        .     ~      ____ _ .. ..  .- .
-                         .         '        ~ -.        ~ -.
-                           ' . . '               ~ - .       ~-.
-                                                       ~ - .      ~ .
-                                                              ~ -...0..~. ____
-   Cessna 402  (Wings)
-   by Dick Williams, rjw1@tyrell.net
-*/
-
-use Tracy\SessionStorage;
-
-$ds = DIRECTORY_SEPARATOR;
-session_start();
-// $_SESSION['test'] = 998;
-// require(__DIR__. $ds . '..' . $ds . 'app' . $ds . 'config' . $ds . 'bootstrap.php');
-require(__DIR__. $ds . 'app' . $ds . 'config' . $ds . 'database.php');
+try {
+    $pdo = new PDO("mysql:host=sql.freedb.tech;dbname=freedb_hiuinterne", "freedb_hiuinterne", "kpu*kepU&p8mKM4", [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+    echo "Connexion réussie";
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
+?>

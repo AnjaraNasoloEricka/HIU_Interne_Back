@@ -1,7 +1,7 @@
 # Utiliser l'image PHP 8 basée sur Alpine
 FROM php:8-alpine
 
-# Installer PDO et PDO MySQL
+# Installer PDO, PDO MySQL et d'autres extensions nécessaires
 RUN docker-php-ext-install pdo pdo_mysql
 
 # Activer l'affichage des erreurs dans le fichier php.ini

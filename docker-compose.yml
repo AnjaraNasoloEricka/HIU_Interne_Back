@@ -1,13 +1,18 @@
 version: '3.7'
 
+networks:
+  default:
+    driver: bridge
+
 services:
-    flight:
-        image: php:8-alpine
-        working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public
-        environment:
-            docker: "true"
-        ports:
-            - "8080:8080"
-        volumes:
-            - .:/var/www
+  flight:
+    image: php:8-alpine
+    container_name: flight-1
+    working_dir: /var/www
+    command: sh -c "docker-php-ext-install pdo pdo_mysql && php -S 0.0.0.0:8080 index.php"
+    environment:
+      docker: "true"
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www

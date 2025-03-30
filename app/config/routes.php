@@ -18,7 +18,7 @@ $articleController = new ArticleController($app);
 // $router->get('/', [$CreateController, 'goToHomePage']);
 $router->post('/', [$CreateController, 'createArticle']);
 $router->get('/find/@id', [$CreateController, 'find_ById']);
-
+$router->post('/askGPT', [$CreateController, 'askGPT']);
 
 $userController = new UserController(Flight::app());
 $CRUD_Controller = new CRUDController();

@@ -39,6 +39,8 @@ $app->set('flight.handle_errors', false); // if you want flight to handle errors
 $app->set('flight.views.path', __DIR__ . $ds . '..' . $ds . 'views'); // set the path to your view/template/ui files
 $app->set('flight.views.extension', '.php'); // set the file extension for your view/template/ui files
 $app->set('flight.content_length', true); // if flight should send a content length header
+// $app->set('openai_api_key', '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'); // Remplace 'sk-xxxxx' par ta vraie clé API
+$app->set('openai_api_key', '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'); // Remplace 'sk-xxxxx' par ta vraie clé API
 
 /* 
  * Get Tracy up and running
@@ -73,12 +75,12 @@ return [
 		'host' => 'localhost',
 		'dbname' => 'HIU',
 		'user' => 'root',
-		'password' => ''
+		'password' => ' '
 
 		// uncomment the following line for sqlite
 		// 'file_path' => __DIR__ . $ds . '..' . $ds . 'database.sqlite'
 	],
-
+	
 	// this is just here for an example
 	// 'google_oauth' => [
 	// 	'client_id' => 'client_id',

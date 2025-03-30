@@ -1,6 +1,9 @@
 # Utiliser l'image PHP 8 basée sur Alpine
 FROM php:8-alpine
 
+# Installer PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Définir le répertoire de travail
 WORKDIR /var/www
 

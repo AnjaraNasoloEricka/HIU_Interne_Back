@@ -3,9 +3,7 @@ try {
     // Configuration avec SSL simple
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_TIMEOUT => 30,
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-        PDO::MYSQL_ATTR_SSL_CA => false
+        PDO::MYSQL_ATTR_SSL_CA => true
     ];
     
     $pdo = new PDO(

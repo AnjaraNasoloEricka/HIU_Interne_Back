@@ -1,6 +1,6 @@
 <?php
 try {
-    $pdo = new PDO("mysql:host=sql.freedb.tech;dbname=freedb_hiuinterne", "freedb_hiuinterne", "kpu*kepU&p8mKM4", [
+    $pdo = new PDO("mysql:host=sql.freedb.tech;dbname=freedb_hiuinterne;ssl=true", "freedb_hiuinterne", "kpu*kepU&p8mKM4", [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
     echo "Connexion réussie";

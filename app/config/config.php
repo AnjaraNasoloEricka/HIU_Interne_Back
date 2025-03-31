@@ -102,6 +102,10 @@ return [
 	'openai' => [
 		'api_key' => getenv('OPENAI_API_KEY') ?: ''
 	],
+	'mistral' => [
+		'api_key' => getenv("MISTRAL_API_KEY") ?: ''
+	],
+	
 	// this is just here for an example
 	// 'google_oauth' => [
 	// 	'client_id' => 'client_id',

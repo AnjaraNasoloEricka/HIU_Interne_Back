@@ -51,3 +51,7 @@ Flight::map('GeneraliseModel', function () {
 Flight::map('articleModel', function () {
     return new ArticleModel(Flight::db());
 });
+
+Flight::map('hf_api_key', function() use ($config) {
+    return getenv('HF_API_KEY') ?: $config['hf']['api_key'];
+});

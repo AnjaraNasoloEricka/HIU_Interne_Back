@@ -67,6 +67,20 @@ if (Debugger::$showBar && php_sapi_name() !== 'cli') {
  * 
  * What you store here is totally up to you.
  */
+
+ if (file_exists(__DIR__ . $ds . '.env')) {
+    $env_lines = file(__DIR__ . $ds . '.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($env_lines as $line) {
+        if (strpos($line, '=') !== false && strpos($line, '#') !== 0) {
+            list($key, $value) = explode('=', $line, 2);
+            $key = trim($key);
+            $value = trim($value);
+            putenv("$key=$value");
+            $_ENV[$key] = $value;
+        }
+    }
+}
+
 return [
 	'database' => [
 		// uncomment the below 4 lines for mysql
@@ -77,6 +91,11 @@ return [
 
 		// uncomment the following line for sqlite
 		// 'file_path' => __DIR__ . $ds . '..' . $ds . 'database.sqlite'
+	],
+
+	'hf' =>
+	[
+		'api_key' => getenv('HF_API_KEY') ?: ''
 	],
 
 	// this is just here for an example

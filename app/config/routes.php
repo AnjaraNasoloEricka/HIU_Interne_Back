@@ -5,6 +5,7 @@ use app\controllers\CreateController;
 use app\controllers\UserController;
 use app\controllers\CRUDController;
 use app\controllers\ArticleController;
+use app\controllers\SentimentController;
 
 /** 
  * @var Router $router 
@@ -28,3 +29,6 @@ $router->post('/user',[$userController, 'login']);
 $router->get('/readArticle', [$CRUD_Controller, 'crudArticle']);
 $router->put('/updateArticle/@id', [$CRUD_Controller, 'updateArticle']);
 $router->delete('/article/delete/@id', [$articleController, 'deleteArticle']);
+
+$sentimentController = new SentimentController();
+$router->post('/sentiment-controller', [$sentimentController, 'sentimentController']);

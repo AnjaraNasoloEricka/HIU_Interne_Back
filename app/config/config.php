@@ -40,6 +40,7 @@ $app->set('flight.views.path', __DIR__ . $ds . '..' . $ds . 'views'); // set the
 $app->set('flight.views.extension', '.php'); // set the file extension for your view/template/ui files
 $app->set('flight.content_length', true); // if flight should send a content length header
 
+
 /* 
  * Get Tracy up and running
  * 
@@ -97,7 +98,10 @@ return [
 	[
 		'api_key' => getenv('HF_API_KEY') ?: ''
 	],
-
+	
+	'openai' => [
+		'api_key' => getenv('OPENAI_API_KEY') ?: ''
+	],
 	// this is just here for an example
 	// 'google_oauth' => [
 	// 	'client_id' => 'client_id',

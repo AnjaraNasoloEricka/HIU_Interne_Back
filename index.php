@@ -31,4 +31,5 @@ $ds = DIRECTORY_SEPARATOR;
 session_start();
 // $_SESSION['test'] = 998;
 // require(__DIR__. $ds . '..' . $ds . 'app' . $ds . 'config' . $ds . 'bootstrap.php');
+
 require(__DIR__. $ds . 'app' . $ds . 'config' . $ds . 'database.php');

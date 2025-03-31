@@ -33,6 +33,5 @@ $router->delete('/article/delete/@id', [$articleController, 'deleteArticle']);
 
 $sentimentController = new SentimentController();
 $router->post('/sentiment-controller', [$sentimentController, 'sentimentController']);
-
 $promptClassificationController = new PromptClassification();
 $router->post('/prompt-mistral', [$promptClassificationController, 'askMistral']);

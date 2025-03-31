@@ -5,6 +5,7 @@ use app\controllers\CreateController;
 use app\controllers\UserController;
 use app\controllers\CRUDController;
 use app\controllers\ArticleController;
+use app\controllers\PromptClassification;
 use app\controllers\SentimentController;
 
 /** 
@@ -32,3 +33,5 @@ $router->delete('/article/delete/@id', [$articleController, 'deleteArticle']);
 
 $sentimentController = new SentimentController();
 $router->post('/sentiment-controller', [$sentimentController, 'sentimentController']);
+$promptClassificationController = new PromptClassification();
+$router->post('/prompt-mistral', [$promptClassificationController, 'askMistral']);

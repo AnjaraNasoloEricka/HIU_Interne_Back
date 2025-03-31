@@ -39,8 +39,7 @@ $app->set('flight.handle_errors', false); // if you want flight to handle errors
 $app->set('flight.views.path', __DIR__ . $ds . '..' . $ds . 'views'); // set the path to your view/template/ui files
 $app->set('flight.views.extension', '.php'); // set the file extension for your view/template/ui files
 $app->set('flight.content_length', true); // if flight should send a content length header
-// $app->set('openai_api_key', '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'); // Remplace 'sk-xxxxx' par ta vraie clé API
-$app->set('openai_api_key', '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'); // Remplace 'sk-xxxxx' par ta vraie clé API
+
 
 /* 
  * Get Tracy up and running
@@ -69,6 +68,20 @@ if (Debugger::$showBar && php_sapi_name() !== 'cli') {
  * 
  * What you store here is totally up to you.
  */
+
+ if (file_exists(__DIR__ . $ds . '.env')) {
+    $env_lines = file(__DIR__ . $ds . '.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($env_lines as $line) {
+        if (strpos($line, '=') !== false && strpos($line, '#') !== 0) {
+            list($key, $value) = explode('=', $line, 2);
+            $key = trim($key);
+            $value = trim($value);
+            putenv("$key=$value");
+            $_ENV[$key] = $value;
+        }
+    }
+}
+
 return [
 	'database' => [
 		// uncomment the below 4 lines for mysql
@@ -81,6 +94,9 @@ return [
 		// 'file_path' => __DIR__ . $ds . '..' . $ds . 'database.sqlite'
 	],
 	
+	'openai' => [
+		'api_key' => getenv('OPENAI_API_KEY') ?: ''
+	],
 	// this is just here for an example
 	// 'google_oauth' => [
 	// 	'client_id' => 'client_id',

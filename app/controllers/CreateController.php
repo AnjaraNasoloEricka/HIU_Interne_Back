@@ -93,10 +93,10 @@ class CreateController
     
         $prompt = $data['prompt']; // Récupération de la valeur du prompt
     
-        // Récupération de la clé API stockée dans Flight
-        $apiKey = Flight::get('openai_api_key');
+        // Utilisation de la fonction map définie dans services.php pour récupérer la clé API
+        $apiKey = Flight::openai_api_key();
     
-        if (!$apiKey) {
+        if (empty($apiKey)) {
             Flight::json(["succes" => "no", "erreur" => "Clé API non configurée"], 500);
             return;
         }
@@ -140,9 +140,7 @@ class CreateController
         
         // Si le code n'est pas 200, il y a une erreur
         if ($httpCode !== 200) {
-            $errorMessage = isset($decodedResponse['error']['message']) 
-                ? $decodedResponse['error']['message'] 
-                : "Erreur HTTP: " . $httpCode;
+            $errorMessage = isset($decodedResponse['error']['message']) ? $decodedResponse['error']['message'] : "Erreur HTTP: " . $httpCode;
             Flight::json(["succes" => "no", "erreur" => $errorMessage], $httpCode);
             return;
         }
@@ -155,7 +153,6 @@ class CreateController
             Flight::json(["succes" => "no", "erreur" => "Réponse invalide de l'API: " . json_encode($decodedResponse)], 500);
         }
     }
-
-
+    
 }
 

@@ -51,3 +51,7 @@ Flight::map('GeneraliseModel', function () {
 Flight::map('articleModel', function () {
     return new ArticleModel(Flight::db());
 });
+
+Flight::map('openai_api_key', function() use ($config) {
+    return getenv('OPENAI_API_KEY') ?: $config['openai']['api_key'];
+});

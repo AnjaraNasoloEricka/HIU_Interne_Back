@@ -40,6 +40,17 @@ $app->set('flight.views.path', __DIR__ . $ds . '..' . $ds . 'views'); // set the
 $app->set('flight.views.extension', '.php'); // set the file extension for your view/template/ui files
 $app->set('flight.content_length', true); // if flight should send a content length header
 
+$app->before('start', function () {
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        header("HTTP/1.1 200 OK");
+        exit();
+    }
+});
+
 
 /* 
  * Get Tracy up and running

@@ -85,10 +85,10 @@ if (Debugger::$showBar && php_sapi_name() !== 'cli') {
 return [
 	'database' => [
 		// uncomment the below 4 lines for mysql
-		'host' => 'localhost',
-		'dbname' => 'HIU',
-		'user' => 'root',
-		'password' => ' '
+		'host' => 'sql.freedb.tech',
+		'dbname' => 'freedb_hiuinterne',
+		'user' => 'freedb_hiuinterne',
+		'password' => 'kpu*kepU&p8mKM4'
 
 		// uncomment the following line for sqlite
 		// 'file_path' => __DIR__ . $ds . '..' . $ds . 'database.sqlite'

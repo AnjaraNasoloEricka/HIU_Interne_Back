@@ -15,7 +15,7 @@ class ArticleModel
     }
 
     public function delete($id_article) {
-        $sql = "DELETE FROM article WHERE id_article = ?";
+        $sql = "DELETE FROM Article WHERE id_article = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(1, $id_article, PDO::PARAM_INT);
     

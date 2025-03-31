@@ -93,6 +93,11 @@ return [
 		// uncomment the following line for sqlite
 		// 'file_path' => __DIR__ . $ds . '..' . $ds . 'database.sqlite'
 	],
+
+	'hf' =>
+	[
+		'api_key' => getenv('HF_API_KEY') ?: ''
+	],
 	
 	'openai' => [
 		'api_key' => getenv('OPENAI_API_KEY') ?: ''

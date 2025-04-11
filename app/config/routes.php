@@ -31,6 +31,8 @@ $router->get('/readArticle', [$CRUD_Controller, 'crudArticle']);
 $router->put('/updateArticle/@id', [$CRUD_Controller, 'updateArticle']);
 $router->delete('/article/delete/@id', [$articleController, 'deleteArticle']);
 
+$router->post('/askGroq', [$CreateController, 'askGroq']);
+
 $sentimentController = new SentimentController();
 $router->post('/sentiment-controller', [$sentimentController, 'sentimentController']);
 $promptClassificationController = new PromptClassification();

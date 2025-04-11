@@ -62,3 +62,6 @@ Flight::map('hf_api_key', function() use ($config) {
 Flight::map('mistral_api_key',function () use ($config) {
     return getenv('MISTRAL_API_KEY') ?: $config['mistral']['api_key'];
 });
+Flight::map('groq_api_key',function () use ($config) {
+    return getenv('GROQ_API_KEY') ?: $config['groq']['api_key'];
+});

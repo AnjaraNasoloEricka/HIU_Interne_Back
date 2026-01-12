@@ -3,7 +3,6 @@
 use app\models\ArticleModel;
 use app\models\UserModel;
 use app\models\CrudModel;
-use app\models\GeneraliseModel;
 use app\models\CreateModel;
 
 use flight\Engine;

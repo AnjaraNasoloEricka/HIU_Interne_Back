@@ -48,5 +48,36 @@ class CreateController
             Flight::json(['erreur' => "tsy mandeha eh"]);
         }
     }
+
+    public function find_ById($id)
+    {
+        $CreateModel = new CreateModel(Flight::db());
+
+        try{
+            if (empty($id)) {
+                Flight::json(['erreur' => "ID article manquant "]);
+                return;
+            }
+
+            $article = $CreateModel->findById($id);
+
+            if(!empty($article)){
+                $tab = [
+                    'title' => $article['title'],
+                    'description' => $article['description'],
+                    'date_create' => $article['date_create'],
+                    'date_modification' => $article['date_modification']
+                ];
+                Flight::json($tab);
+            } else{
+                Flight::json(['erreur' => "tsy mandeha ndray"]);
+            }
+
+        } catch (Exception $e) {
+            Flight::json([
+                'erreur' => "Erreur : " . $e->getMessage()
+            ]);
+        }  
+    }
 }
 
